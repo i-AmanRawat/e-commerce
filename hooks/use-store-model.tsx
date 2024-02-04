@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+//state handler for store
 interface useStoreModalStore {
   isOpen: boolean;
   onOpen: () => void;
