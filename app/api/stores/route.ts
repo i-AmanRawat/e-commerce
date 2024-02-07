@@ -20,8 +20,6 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log("store: ", store);
-
     return NextResponse.json(store);
   } catch (error) {
     console.log("[STORES][Post]", error);

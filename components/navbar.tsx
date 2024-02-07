@@ -1,8 +1,8 @@
 import { auth, UserButton } from "@clerk/nextjs";
-
-import MainNav from "@/components/main-nav";
-import { StoreSwitcher } from "@/components/store-switcher";
 import { redirect } from "next/navigation";
+
+import { StoreSwitcher } from "@/components/store-switcher";
+import MainNav from "@/components/main-nav";
 import prismadb from "@/lib/prismadb";
 
 export default async function Navbar() {
@@ -15,6 +15,7 @@ export default async function Navbar() {
       userId,
     },
   });
+
   return (
     <div className="border-b">
       <div className="flex h-16 justify-center px-4">
