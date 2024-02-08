@@ -26,19 +26,21 @@ import {
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
-interface SettingsPageProps {
+interface SettingsFormProps {
   initialData: store;
 }
 
 type SettingsFormValues = z.infer<typeof settingsFormSchema>;
 
-export function SettingsForm({ initialData }: SettingsPageProps) {
+export function SettingsForm({ initialData }: SettingsFormProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(settingsFormSchema),

@@ -7,3 +7,8 @@ export const storeFormSchema = z.object({
 export const settingsFormSchema = z.object({
   name: z.string().min(1, { message: "Enter store name" }),
 });
+
+export const billboardFormSchema = z.object({
+  label: z.string().min(1, { message: "Enter store name" }),
+  imageUrl: z.string().url(),
+});
