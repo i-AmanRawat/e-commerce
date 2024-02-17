@@ -85,7 +85,7 @@ export function ColorForm({ initialData }: ColorFormProps) {
 
       toast.success("Color deleted!");
 
-      router.push(`/api/${params.storeId}/colors`);
+      router.push(`/${params.storeId}/colors`);
 
       router.refresh();
     } catch (error) {

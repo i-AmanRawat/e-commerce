@@ -90,7 +90,7 @@ export function BillboardForm({ initialData }: BillboardFormProps) {
 
       toast.success("Billboard deleted!");
 
-      router.push(`/api/${params.storeId}/billboards`);
+      router.push(`/${params.storeId}/billboards`);
 
       router.refresh();
     } catch (error) {

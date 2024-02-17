@@ -97,7 +97,7 @@ export function CategoryForm({ initialData, billboards }: CategoryFormProps) {
 
       toast.success("Category deleted!");
 
-      router.push(`/api/${params.storeId}/categories`);
+      router.push(`/${params.storeId}/categories`);
 
       router.refresh();
     } catch (error) {

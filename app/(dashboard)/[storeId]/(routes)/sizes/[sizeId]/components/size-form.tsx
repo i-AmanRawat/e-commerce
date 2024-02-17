@@ -85,7 +85,7 @@ export function SizeForm({ initialData }: SizeFormProps) {
 
       toast.success("Size deleted!");
 
-      router.push(`/api/${params.storeId}/sizes`);
+      router.push(`/${params.storeId}/sizes`);
 
       router.refresh();
     } catch (error) {
