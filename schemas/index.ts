@@ -17,3 +17,8 @@ export const categoryFormSchema = z.object({
   name: z.string().min(1, { message: "Enter category name" }),
   billboardId: z.string().min(1),
 });
+
+export const sizeFormSchema = z.object({
+  name: z.string().min(1, { message: "Enter size" }),
+  value: z.string().min(1, { message: "Enter size value" }),
+});
