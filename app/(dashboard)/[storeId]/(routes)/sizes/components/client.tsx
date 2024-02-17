@@ -22,7 +22,7 @@ export function SizeClient({ data }: SizeClientProps) {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Sizes ${data.length}`}
+          title={`Sizes (${data.length})`}
           description="Manage sizes for your store"
         />
         <Button

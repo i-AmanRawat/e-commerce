@@ -22,7 +22,7 @@ export function CategoryClient({ data }: CategoryClientProps) {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Categories ${data.length}`}
+          title={`Categories (${data.length})`}
           description="Manage categories for your store"
         />
         <Button
