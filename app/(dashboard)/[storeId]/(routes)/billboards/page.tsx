@@ -4,7 +4,7 @@ import prismadb from "@/lib/prismadb";
 import { BillboardClient } from "./components/client";
 import { BillboardColumn } from "./components/columns";
 
-export default async function Billboards({
+export default async function BillboardsPage({
   params,
 }: {
   params: { storeId: string };
