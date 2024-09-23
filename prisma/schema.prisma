@@ -17,8 +17,9 @@ model store {
   userId String
   billBoards billBoard[] @relation("storeTobillBoard")
   categories category[] @relation("storeToCategory")
-  size size[] @relation("storeToSize")
-  color color[] @relation("storeToColor")
+  products product[] @relation("storeToProduct")
+  sizes size[] @relation("storeToSize")
+  colors color[] @relation("storeToColor")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -41,6 +42,7 @@ model category {
   billboardId String
   billBoard billBoard @relation("billBoardToCategory", fields: [billboardId], references: [id])
   name String
+  products product[] @relation("categoryToProduct")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -51,6 +53,7 @@ model size {
   store store @relation("storeToSize", fields: [storeId], references: [id])
   name String
   value String
+  products product[] @relation("sizeToProduct")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -61,6 +64,35 @@ model color{
   store store @relation("storeToColor", fields: [storeId], references: [id])
   name String
   value String
+  products product[] @relation("colorToProduct")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model product{
+  id String @id @default(uuid())
+  storeId String
+  store store @relation("storeToProduct", fields: [storeId], references: [id])
+  categoryId String
+  category category @relation("categoryToProduct", fields: [categoryId], references: [id])
+  name String
+  price Decimal
+  isFeatured Boolean @default(false)
+  isArchived Boolean @default(false)
+  sizeId String
+  size size @relation("sizeToProduct", fields: [sizeId], references: [id])
+  colorId String
+  color color @relation("colorToProduct", fields: [colorId], references: [id])
+  images image[] @relation("imageToProduct")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model image {
+  id String @id @default(uuid())
+  productId String
+  product product @relation("imageToProduct", fields: [productId], references: [id], onDelete: Cascade)
+  url String
+  createdAt DateTime @default(now())
+  updatedAT DateTime @updatedAt
 }

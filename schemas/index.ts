@@ -18,6 +18,17 @@ export const categoryFormSchema = z.object({
   billboardId: z.string().min(1),
 });
 
+export const productFormSchema = z.object({
+  name: z.string().min(1, { message: "Enter product name" }),
+  images: z.object({ url: z.string().url() }).array(),
+  isFeatured: z.boolean().default(false).optional(),
+  isArchived: z.boolean().default(false).optional(),
+  price: z.coerce.number().min(1),
+  categoryId: z.string().min(1),
+  sizeId: z.string().min(1),
+  colorId: z.string().min(1),
+});
+
 export const sizeFormSchema = z.object({
   name: z.string().min(1, { message: "Enter size name" }),
   value: z.string().min(1, { message: "Enter size value" }),
